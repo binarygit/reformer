@@ -1,1 +1,32 @@
-<h1>Hello World!</h1>
+<!--
+<form action="/users" method='post' accept-charset="UTF-8" style='margin-top: 40px; width: 500px'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="username">Username: </label>
+  <input type="text" name='user[username]' id='username'><hr>
+  <label for="email">Email: </label>
+  <input type="email" name='user[email]' id='email'><hr>
+  <label for="password">Password: </label>
+  <input type="password" name='user[password]' id='password'><br>
+  <input type="submit" value='Register'>
+</form>
+
+<%= form_tag('/users') do -%>
+  <%= label_tag(:username, 'Username') %>
+  <%= text_field_tag(:username) %><br>
+  <%= label_tag(:email, 'email') %>
+  <%= text_field_tag(:email) %><br>
+  <%= label_tag(:password, 'password') %>
+  <%= text_field_tag(:password) %><br>
+  <%= submit_tag('Register') %>
+<% end -%>
+-->
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username, placeholder: 'crazyrails' %><br>
+  <%= form.label :email %>
+  <%= form.email_field :email, placeholder: 'something@something.com', value: 'hey@hey.com' %><br>
+  <%= form.label :password %>
+  <%= form.password_field :password %><br>
+  <%= form.submit 'Register' %>
+<% end %>
